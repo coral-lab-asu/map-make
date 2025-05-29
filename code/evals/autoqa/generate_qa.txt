@@ -1,0 +1,62 @@
+### *Task:*  
+Generate a *comprehensive* list of fact-based questions that can be answered using the provided text passage. Ensure that *every piece of information* in the text is evaluated by at least one question.  
+
+
+### *Instructions:*  
+
+1. *Coverage:*  
+   - Create questions that address *all details* in the text, including:  
+     - *Names* (people, places, organizations, teams, individuals)  
+     - *Events* (actions, sequences, key occurrences)  
+     - *Statistics* (numerical values, percentages, rankings, records)  
+     - *Dates & Timeframes* (when something happened, upcoming events)  
+     - *Comparisons & Trends* (before/after events, changes in status, performance shifts)  
+     - *Contextual Factors* (underlying conditions, challenges, external influences)  
+
+2. *Generating Good Questions:*  
+   - A *good question* evaluates a *single fact or statistic* from the text, ensuring *one deterministic answer* without ambiguity.  
+   - Avoid vague, broad, or open-ended questions. Every question must be *precise* and *anchored* to a specific detail from the passage.  
+   - *Examples of Bad vs. Good Questions:*  
+
+     | *Bad Question (Ambiguous/Non-Deterministic)* | *Good Question (Deterministic & Specific)* |
+     |---------------------------------------------|---------------------------------------------|
+     | What were the results of the study? | What percentage of participants reported improved symptoms? |
+     | Who contributed to the decision? | Who was the lead scientist responsible for the experiment? |
+     | When did the company launch the product? | When was the latest version of the product released? |
+     | Where was the data collected? | Where was the highest pollution level recorded in 2023? |
+     | How did sales improve? | How much did sales increase in the last quarter of 2023? |
+     | Why did the trend change? | Why did the inflation rate drop by 2% in Q4 2023? |
+
+   - Only generate *good questions* that are *precise, factual, and evaluate a single piece of information.*  
+
+3. *Question-Answer Pair Format:*  
+   
+   [Question 1: <Insert question here>] [Answer 1: <Insert answer here>]
+   [Question 2: <Insert question here>] [Answer 2: <Insert answer here>]
+   
+
+4. *Exhaustive Evaluation:*  
+   - Ensure every single *fact, number, event, and observation* in the passage is addressed by at least one question.  
+   - For statistics, consider asking about:  
+     - *Raw numbers* (e.g., total occurrences, values)  
+     - *Percentages* (e.g., proportions, efficiency)  
+     - *Trends & Comparisons* (e.g., changes over time, relative differences)  
+
+5. *Avoid Redundancy:*  
+   - Do not ask *duplicate* or overly similar questions.  
+   - Instead, create *contextual variations* to cover the same information from different angles.  
+
+6. *Self-Consistency & Final Check:*  
+   - *After generating the Q&A pairs,* evaluate the list for *completeness and comprehensiveness* by ensuring:  
+     - Every fact, number, and event in the passage has been addressed.  
+     - No critical information is missing.  
+     - No two questions are redundant or repetitive.  
+   - If any *detail remains unevaluated,* generate additional Q&A pairs to fill the gap.  
+
+---
+### *Output Format:*  
+```
+[Question 1: <Insert question here>] [Answer 1: <Insert answer here>]
+[Question 2: <Insert question here>] [Answer 2: <Insert answer here>]
+...
+...

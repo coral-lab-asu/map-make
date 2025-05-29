@@ -1,0 +1,107 @@
+You are a helpful AI assistant to help infer useful information from table structures. 
+Task: You are given a table. Your goal is to write all the details conveyed in the table in the form of natural language statements. A statement is an atomic unit of information from the table.
+Following the below instructions to do so:
+1. Identify the column headers in the table.
+2. Identify the various rows in the table.
+3. From each row, identify meaningful and atomic pieces
+of information that cannot be broken down further.
+4. First, identify columns as primary key(s). A primary
+key is the column or columns that contain values that
+uniquely identify each row in a table.
+5. If there is only one primary key identified, use it and add
+information from each of the other columns one-by-one
+to form meaningful statements.
+6. If there are more than one primary key identified,
+use them and add information from each of the other
+columns one-by-one to form meaningful statements.
+7. If no primary key is detected, then form the statements
+by picking two columns at a time that make the most
+sense in a meaningful manner.
+8. In each of the above three cases, add information from
+other columns (beyond the primary key column(s) or the
+identified two columns in the absence of a primary key)
+only if it is necessary to differentiate repeating entities.
+9. Write all such statements in natural language.
+10. Do not exclude any detail that is present in the given
+table.
+11. Give the supporting rows for each atomic statement.
+
+Input table format:
+| | <Column Header 1> | ... |
+| <Row Header 1> | <Cell Value for (Row Header 1, Column Header 1)> | ... |
+...
+
+Final output format:
+Table:
+| | <Column Header 1> | ... |
+| <Row Header 1> | <Cell Value for (Row Header 1, Column Header 1)> | ... |
+...
+
+Statements:
+1. ...
+2. ...
+...
+
+Rows:
+1. | <Row Header 1> | <Cell Value for (Row Header 1, Column Header 1)> | ... |
+...
+
+Following are a few examples.
+EXAMPLE 1
+Table:
+|Year|Competition|Venue|Position|Event|Notes|
+|1966|European Indoor Games|Dortmund, West Germany|1st|400 m|47.9|
+|1967|European Indoor Games|Prague, Czechoslovakia|2nd|400 m|48.6|
+
+Statements:
+1. European Indoor Games in 1966 occurred in Dortmund, West Germany.
+2. 1st position was obtained in the 1966 European Indoor Games.
+3. The 1966 European Indoor Games had a 400 m event.
+4. 47.9 in the 1966 European Indoor Games.
+5. European Indoor Games in 1967 occurred in Prague, Czechoslovakia.
+6. 2nd position was obtained in the 1967 European Indoor Games.
+7. The 1967 European Indoor Games had a 400 m event.
+8. 48.6 in the 1967 European Indoor Games.
+
+Rows:
+1. |1966|European Indoor Games|Dortmund, West Germany|1st|400m|47.9|
+2. |1967|European Indoor Games|Prague, Czechoslovakia|2nd|400m|48.6|
+
+Example Bad Statements:
+1. Koch came in 1st position in European Indoor Games in 1966 which occurred in Dortmund, West Germany.
+2. 47.9 in European Indoor Games in 1966 which occurred in Dortmund, West Germany.
+3. 2nd position in European Indoor Games in 1967 which occurred in Prague, Czechoslovakia.
+
+EXAMPLE 2
+Table:
+|Year|Title|Role|Notes|
+|2015|Kidnapped: The Hannah Anderson Story|Becca McKinnon|None|
+|2015|Jem and the Holograms|Young Jerrica Benton|None|
+|2015|Asomatous|Sophie Gibbs|None|
+|2017|Unforgettable|Lily|None|
+|2019|Our Friend|Molly|None|
+
+Statements:
+1. Kidnapped: The Hannah Anderson Story was filmed in 2015.
+2. Isabella Rice played the role of Becca McKinnon in Kidnapped: The Hannah Anderson Story.
+3. Jem and the Holograms was filmed in 2015.
+4. Isabella Rice played the role of Young Jerrica Benton in Jem and the Holograms.
+5. Asomatous was filmed in 2015.
+6. Isabella Rice played the role of Sophie Gibbs in Asomatous.
+7. Unforgettable was filmed in 2017.
+8. Isabella Rice played the role of Lily in Unforgettable.
+9. Our Friend was filmed in 2019.
+10. Isabella Rice played the role of Molly in Our Friend.
+
+Rows:
+1. |2015|Kidnapped: The Hannah Anderson Story|Becca McKinnon|None|
+2. |2015|Jem and the Holograms|Young Jerrica Benton|None|
+3. |2015|Asomatous|Sophie Gibbs|None|
+4. |2017|Unforgettable|Lily|None|
+5. |2019|Our Friend|Molly|None|
+
+Example Bad Statements:
+1. Isabella Rice played the role of Becca McKinnon in Kidnapped: The Hannah Anderson Story in 2015.
+2. Jem and the Holograms was filmed in 2015 where Isabella Rice played the role of Young Jerrica Benton.
+3. Isabella Rice played the role of Sophie Gibbs in Asomatous in 2015.
+

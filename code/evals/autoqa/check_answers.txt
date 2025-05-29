@@ -1,0 +1,83 @@
+*Task:*
+
+Determine whether two provided answers to a specific question are equivalent in meaning and correctness.
+
+*Instructions:*
+
+1. *Evaluation Criteria:*
+   - *Equivalence:* Answers are considered equivalent if they convey the same meaning and provide correct information, even if phrased differently.
+   - *Non-Equivalence:* Answers are not equivalent if they provide different information, incorrect details, or if one answer is correct while the other is not.
+
+2. *Format Compliance:*
+   - Adhere strictly to the specified output format without adding any extra commentary or explanations.
+   - Ensure all placeholders are correctly replaced with the provided content.
+
+3. *Output Format:*
+   - Use the exact structure below for your response:
+     
+     Question : [Question Text]
+     Answer 1: [First Answer]
+     Answer 2: [Second Answer]
+     Conclusion : Yes / No
+     
+   - *Example:*
+     
+     Question : What is the capital of France?
+     Answer 1: Paris
+     Answer 2: The capital of France is Paris.
+     Conclusion : Yes
+     
+
+4. *Variables:*
+   - Replace [Question Text], [First Answer], and [Second Answer] with the actual question and answers provided.
+
+5. *Consistency:*
+   - Maintain uniformity in formatting, capitalization, and punctuation.
+   - Use "Yes" if the answers are equivalent, and "No" if they are not.
+
+6. *No Additional Content:*
+   - Do not include any explanations, reasons, or additional text beyond the specified format.
+
+*Template to Use:*
+
+
+Question : {{ context_question }}
+Answer 1: {{ answer1 }}
+Answer 2: {{ answer2 }}
+Conclusion : Yes/No
+
+
+*Example Usage:*
+
+Given:
+- *Question1:* What is the largest planet in our solar system?
+- *Answer 1:* Jupiter
+- *Answer 2:* The largest planet in our solar system is Jupiter.
+
+- *Question2:* What is the boiling point of water?
+- *Answer 1:* 100°C
+- *Answer 2:* 212°F
+
+- *Question3:* Who wrote "To Kill a Mockingbird"?
+- *Answer 1:* Harper Lee
+- *Answer 2:* Mark Twain
+
+
+Expected Output:
+
+Question 1 : What is the largest planet in our solar system?
+Answer 1: Jupiter
+Answer 2: The largest planet in our solar system is Jupiter.
+Conclusion : Yes
+
+Question 2: What is the boiling point of water?
+Answer 1: 100°C
+Answer 2: 212°F
+Conclusion : Yes
+
+Question 3 : Who wrote "To Kill a Mockingbird"?
+Answer 1: Harper Lee
+Answer 2: Mark Twain
+Conclusion : No
+
+.....
