@@ -1,0 +1,166 @@
+You are an expert at converting unstructured, detailed textual inputs into highly structured tables.
+You are given 3 tasks to perform sequentially.
+Perform TASK 1, then, use the output of TASK 1 to perform TASK 2. Finally, use the outputs of TASK 1 and TASK 2 to perform TASK 3. After completing all three tasks, present the outputs in the order of TASK 1, TASK 2, and TASK 3, separated clearly.
+
+
+***TASK 1***: 
+Decompose the given paragraphs or sentences into clear, self-contained, and highly detailed short atomic statements without losing any information. Each atomic statement should capture a single fact or action with maximum granularity.
+
+***INSTRUCTIONS for TASK 1***:
+Capture only information explicitly stated in the input text.
+No detail should be assumed, inferred, or added that is not present in the text.
+Each atomic statement should contain only one key entity and one action or attribute.
+If a sentence contains multiple pieces of information, decompose it further into more granular statements.
+Eliminate ambiguity by resolving pronouns and ensuring each statement stands alone.
+Preserve necessary context so each statement is meaningful on its own.
+Represent numerical data and units exactly as given in the input text.
+Ensure each statement conveys unique information without overlapping others.
+Ensure statements are clear, direct, and free from unnecessary complexity.
+DO NOT infer or calculate additional data points, such as missed shots, unless explicitly stated in the text.
+Resolve pronouns to their corresponding nouns for clarity.
+Maintain relationships between entities without combining multiple facts.
+
+***OUTPUT FORMAT for TASK 1***:
+<ATOMIC STATEMENT 1>
+<ATOMIC STATEMENT 2>
+<ATOMIC STATEMENT 3>
+...
+
+
+***FINAL CHECKLIST for TASK 1***:
+All information from the input text is included.
+No information or calculation is added that is not present in the text.
+Every fact and detail is accurately represented.
+Statements are clear and can be understood independently.
+Numerical data and units are formatted exactly as provided in the text.
+Each statement directly reflects the input text without inferred details.
+Pronouns are resolved; statements are unambiguous.
+Each statement contains only one key entity and one action or attribute.
+
+Do not number the statements or add extra formatting.
+
+
+***TASK 2***:
+Given a set of atomic text statements, extract row and column headers to create a table schema.
+
+***INSTRUCTIONS for TASK 2***:
+Do not proceed without completing TASK 1.
+Read the statements carefully to identify all attributes, entities, and data points mentioned, whether explicitly stated or implicitly implied.
+Determine the row headers (primary keys) and column headers required to represent the data comprehensively and concisely:
+Row headers are the unique identifiers for individual rows (key entities).
+Column headers are the attributes of the primary keys that represent different aspects or data points.
+Include all explicit and implicit data points, ensuring no relevant information is overlooked. 
+Pay close attention to numerical data, even if it is presented within comparative statements or descriptions of events or related to specific categories or time periods mentioned in the text. 
+Explicit numerical data must always be captured as attributes where appropriate. 
+Implicit data points or recurring attributes must also be included.
+Avoid adding actions as column headers but extract any data points associated with them.
+Ensure that all numerical values are captured as attributes, even if they are related to specific time periods or events within the context. When encountering comparative statements or ratios like "X of Y", ensure you capture both 'X' and 'Y' as potentially distinct and relevant data points if they represent different aspects of an attribute.
+Be attentive to granular details and avoid focusing solely on general or aggregate values if more specific data points are available in the text.
+
+***OUTPUT FORMAT for TASK 2***:
+{
+    "<Table name>": {
+        "row_headers": ["Row Header 1", ...],
+        "column_headers": ["Column Header 1", ...]
+    }
+    ...
+}
+
+***REASONING STEPS for TASK 2***:
+**Step 1 - Identify the context from all the statements to generate a short description**
+
+**Step 2 - Create a empty list of row and column headers for the tables. This list would be updated as we keep on processing the statements and will keep adding relevant column and row headers to the list.**
+
+**Step 3 - Process statements one by one and add relevant headers if not already present in the list.**
+
+***Output Instructions for TASK 2***:
+1. For *every given statement* return the updates done to the schema and generate the "Team" Table and "Player" Table schema.
+2. Do not return schema directly in any case.
+
+
+***TASK 3***:
+Do not proceed without completing TASK 2.
+**Given**:
+*Statements*: A sequence of atomic statements from TASK 1.
+*Schema*: A json object with table names and their row headers and column headers of the respective tables from TASK 2.
+
+**Your goal is to**:
+Process each statement one by one.
+Identify the correct set of table, row and column headers and the cell at that index to update based on the statement.
+Update or add values to the tables accordingly.
+
+***OUTPUT FORMAT for TASK 3***:
+### Final Output Tables:
+
+### <Table name>
+| | <Column Header 1> | ... |
+| <Row Header 1> | <Cell Value for (Row Header 1, Column Header 1)> | ... |
+...
+
+
+***REASONING STEPS for TASK 3***:
+Follow the given algorithm thoroughly,
+
+**ALGORITHM**
+For each statement in the input:
+    Identify Table:
+        Determine the correct table to be updated based on the table.
+    Identify Row and Column:
+        Determine which set of row and columns headers have to be updated based on this table.
+    Update the Table:
+        If no value exists, update the value of the cell as per the statement.
+
+
+### Final Output Tables:
+
+### <Table name>
+| | <Column Header 1> | ... |
+| <Row Header 1> | <Cell Value for (Row Header 1, Column Header 1)> | ... |
+...
+
+
+***FINAL CHECKLIST for TASK 3***:
+Follow these guidelines to generate tables and return the final state of the table after processing all the statements. 
+Ensure all sentences are processed and for every statement return the update and revised state of the updated cells as shown in the example. Return the final table in the exact specified format starting with ### Final Table.
+Do not generate the final table directly in any case. 
+No need to generate the intermediate table states, just return the final table at the end.
+Ensure the table is concise, well-structured, and contains all information from the input.
+The output should contain "Team" table and "Player" table.
+
+***Output Instructions for TASK 3***:
+1. Handle Missing Data:
+    If a column value is not present in the statements, keep it as None.
+2. Structural Integrity:
+    Do not add or remove any rows or columns unless explicitly instructed by the data.
+    Ensure uniformity in the format of data across the table.
+3. Table formatting:
+    Use "|" to separate cells
+
+
+***FINAL OUTPUT FORMAT***:
+<ATOMIC STATEMENT 1>
+<ATOMIC STATEMENT 2>
+<ATOMIC STATEMENT 3>
+...
+
+{
+    "<Table name>": {
+        "row_headers": ["Row Header 1", ...],
+        "column_headers": ["Column Header 1", ...]
+    }
+    ...
+}
+
+### Final Output Tables:
+
+### <Table name>
+| | <Column Header 1> | ... |
+| <Row Header 1> | <Cell Value for (Row Header 1, Column Header 1)> | ... |
+...
+
+
+***FINAL CHECKLIST***:
+Ensure that all the tasks are completed.
+Ensure that the final output contains only the output of all the 3 tasks.
+
+Provide all *OUTPUT* in the specified format only.

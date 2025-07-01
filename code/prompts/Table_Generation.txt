@@ -1,0 +1,183 @@
+You are an expert in converting unstructured text into structured tables. Your task is to process a series of atomic statements and update a set of pre-defined table schemas. Note that you can be given more than one table to update.
+Follow the steps below to ensure accurate and complete table updates.
+
+***TASK***:
+**Given**:
+*Statements*: A sequence of atomic statements.
+*Schema*: A json object with table names and their row headers and column headers of the respective tables.
+
+**Your goal is to**:
+Process each statement one by one.
+Identify the correct set of table, row and column headers and the cell at that index to update based on the statement.
+Update or add values to the tables accordingly.
+
+***OUTPUT FORMAT***:
+<REASONING STEPS>
+
+### Final Output Tables:
+### <TABLE NAME>
+| | <Column Header 1> | ... |
+| <Row Header 1> | <Cell Value for (Row Header 1, Column Header 1)> | ... |
+...
+
+
+
+***REASONING STEPS***:
+Follow the given algorithm thoroughly,
+
+**ALGORITHM**
+For each statement in the input:
+    Identify Table:
+        Determine the correct table to be updated based on the table.
+    Identify Row and Column:
+        Determine which set of row and columns headers have to be updated based on this table.
+    Update the Table:
+        If no value exists, update the value of the cell as per the statement.
+
+
+**Sample Input**:
+Statements:
+The Oklahoma City Thunder's record is 16 wins.
+The Oklahoma City Thunder's record is 17 losses.
+The Phoenix Suns' record is 18 wins.
+The Oklahoma City Thunder defeated the Phoenix Suns in overtime on Wednesday.
+The Phoenix Suns scored 134 points.
+Oklahoma City Thunder has won three of their last four games.
+Kevin Durant returned to play after a six-game absence due to an ankle sprain.
+Kevin Durant scored a season-high 44 points in the game.
+Kevin Durant played 40 minutes during the game.
+
+Schema:
+{
+    "Team": {
+    "row_headers": ["Thunder", "Suns"],
+    "column_headers": ["Wins", "Losses", "Total points"]
+    }
+    "Player": {
+        "row_headers": ["Kevin Durant"],
+        "col_headers": ["Points", "Minutes played"]
+    }
+}
+
+
+**Step 1**:
+Initial tables (Empty Tables):
+
+### Team:
+| Team | Wins | Losses | Total Points |
+| Thunder | None | None | None |
+| Suns | None | None | None |
+
+### Player:
+| Player | Points | Minutes Played |
+| Kevin Durant | None | None |
+
+
+**Step 2**:
+*Statement processed*: 
+The Oklahoma City Thunder's record is 16 wins.
+*Updates*: 
+    Table: Team
+    Row: Thunder
+    Column: Wins
+    Value: 16
+
+*Statements processed*:
+The Oklahoma City Thunder's record is 17 losses.
+*Update*:
+    Table: Team
+    Row: Thunder
+    Column: Losses
+    Value: 17
+
+*Statements processed*:
+The Phoenix Suns' record is 18 wins.
+*Update*: 
+    Table: Team
+    Row: Suns 
+    Column: Wins
+    Value: 18
+
+*Statements processed*:
+The Oklahoma City Thunder defeated the Phoenix Suns in overtime on Wednesday.
+*Update*:
+    Table: Team
+    Row: Thunder, Suns
+    Column: Not found , Hence no update required.
+
+*Statements processed*:
+The Phoenix Suns scored 134 points.
+*Update*:
+    Table: Team
+    Row: Suns 
+    Column: Total Points 
+    Value: 18
+
+*Statements processed*:
+Oklahoma City Thunder has won three of their last four games.
+*Update*: 
+    Table: Team
+    Row: Thunder
+    Column: Not found, hence no update required
+
+*Statements processed*:
+Kevin Durant returned to play after a six-game absence due to an ankle sprain.
+*Update*: 
+    Table: Player
+    Row: Kevin Durant
+    Column: Not found, hence no update required
+
+*Statements processed*:
+Kevin Durant returned to play after a six-game absence due to an ankle sprain.
+*Update*: 
+    Table: Player
+    Row: Kevin Durant
+    Column: Not found, hence no update required
+
+*Statements processed*:
+Kevin Durant scored a season-high 44 points in the game.
+*Update*: 
+    Table: Player
+    Row: Kevin Durant
+    Column: Points
+    Value = 44
+
+*Statements processed*:
+Kevin Durant played 40 minutes during the game.
+*Update*: 
+    Table: Player
+    Row: Kevin Durant
+    Column: Minutes Played
+    Value = 40
+
+
+### Final Output Tables:
+
+### Team
+| Team | Wins | Losses | Total Points |
+| Thunder | 16 | 17| None |
+| Suns | 18 | None | 134 |
+
+### Player
+| Player | Points | Minutes Played |
+| Kevin Durant | 44 | 40 |
+
+
+***FINAL CHECKLIST***:
+Follow these guidelines to generate tables and return the final state of the table after processing all the statements. 
+Ensure all sentences are processed and for every statement return the update and revised state of the updated cells as shown in the example. Return the final table in the exact specified format starting with ### Final Table.
+Do not generate the final table directly in any case. 
+No need to generate the intermediate table states, just return the final table at the end.
+Ensure the table is concise, well-structured, and contains all information from the input.
+
+***Final Output Instructions***:
+1. Handle Missing Data:
+    If a column value is not present in the statements, keep it as None.
+2. Structural Integrity:
+    Do not add or remove any rows or columns unless explicitly instructed by the data.
+    Ensure uniformity in the format of data across the table.
+3. Table formatting:
+    Use "|" to separate cells
+
+Provide the *OUTPUT* with *REASONING STEPS* in the specified format only.
+

@@ -1,1 +1,92 @@
+You are an expert at converting unstructured, detailed textual inputs into highly structured and organized atomic statements.
+
+***TASK***: 
+Decompose the given paragraphs or sentences into clear, self-contained, and highly detailed short atomic statements without losing any information. Each atomic statement should capture a single fact or action with maximum granularity.
+
+***INSTRUCTIONS***:
+Capture only information explicitly stated in the input text.
+No detail should be assumed, inferred, or added that is not present in the text.
+Each atomic statement should contain only one key entity and one action or attribute.
+If a sentence contains multiple pieces of information, decompose it further into more granular statements.
+Eliminate ambiguity by resolving pronouns and ensuring each statement stands alone.
+Preserve necessary context so each statement is meaningful on its own.
+Represent numerical data and units exactly as given in the input text.
+Ensure each statement conveys unique information without overlapping others.
+Ensure statements are clear, direct, and free from unnecessary complexity.
+DO NOT infer or calculate additional data points, such as missed shots, unless explicitly stated in the text.
+Resolve pronouns to their corresponding nouns for clarity.
+Maintain relationships between entities without combining multiple facts.
+
+***OUTPUT FORMAT***:
+<REASONING STEPS>
+
+### Atomic Statements:
+<ATOMIC STATEMENT 1>
+<ATOMIC STATEMENT 2>
+<ATOMIC STATEMENT 3>
+...
+
+
+***REASONING STEPS***:
+For each sentence, identify the entities and their corresponding events.
+
+**Sample Input**:
+The Oklahoma City Thunder (16 - 17) defeated the Phoenix Suns (18 - 16) 137 - 134 in overtime on Wednesday. Oklahoma City has won three of their last four games. Kevin Durant returned from a six - game absence due to an ankle sprain and put up a season - high 44 points in 40 minutes.
+
+**Step 1 - Sentence analysis**:
+
+Sentence 1: The Oklahoma City Thunder (16 - 17) defeated the Phoenix Suns (18 - 16) 137 - 134 in overtime on Wednesday.
+Here the entities are Oklahoma City Thunder and Phoenix Suns.
+Events are team records, game result, and total points.
+*Atomic sentences*:
+The Oklahoma City Thunder's record is 16 wins.
+The Oklahoma City Thunder's record is 17 losses.
+The Phoenix Suns' record is 18 wins.
+The Phoenix Suns' record is 16 losses.
+The Oklahoma City Thunder defeated the Phoenix Suns in overtime on Wednesday.
+The Oklahoma City Thunder scored 137 points.
+The Phoenix Suns scored 134 points.
+
+Sentence 2: Oklahoma City has won three of their last four games.
+Here the sentence itself is an atomic sentence.
+*Atomic sentences*:
+Oklahoma City Thunder has won three of their last four games.
+
+Sentence 3: Kevin Durant returned from a six - game absence due to an ankle sprain and put up a season - high 44 points in 40 minutes.
+Here, the entity is Kevin Durant.
+Events are injury, points scored, minutes played.
+*Atomic sentences*:
+Kevin Durant returned to play after a six-game absence due to an ankle sprain.
+Kevin Durant scored a season-high 44 points in the game.
+Kevin Durant played 40 minutes during the game.
+
+... 
+
+Repeat **Step 1** for all sentences in **Sample Input**
+
+Output after processing all sentences in **Sample Input**:
+The Oklahoma City Thunder's record is 16 wins.
+The Oklahoma City Thunder's record is 17 losses.
+The Phoenix Suns' record is 18 wins.
+The Phoenix Suns' record is 16 losses.
+The Oklahoma City Thunder defeated the Phoenix Suns in overtime on Wednesday.
+The Oklahoma City Thunder scored 137 points.
+The Phoenix Suns scored 134 points.
+Oklahoma City Thunder has won three of their last four games.
+Kevin Durant returned to play after a six-game absence due to an ankle sprain.
+Kevin Durant scored a season-high 44 points in the game.
+Kevin Durant played 40 minutes during the game.
+
+***FINAL CHECKLIST***:
+All information from the input text is included.
+No information or calculation is added that is not present in the text.
+Every fact and detail is accurately represented.
+Statements are clear and can be understood independently.
+Numerical data and units are formatted exactly as provided in the text.
+Each statement directly reflects the input text without inferred details.
+Pronouns are resolved; statements are unambiguous.
+Each statement contains only one key entity and one action or attribute.
+
+Do not number the statements or add extra formatting.
+Provide the *OUTPUT* with *REASONING STEPS* in the specified format only.
 

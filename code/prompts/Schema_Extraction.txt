@@ -1,0 +1,160 @@
+You are an expert at defining structural tables by identifying the relevant column headers and row headers from text.
+
+***TASK***:
+Given a set of atomic text statements, extract row and column headers to create a table schema.
+
+***INSTRUCTIONS***:
+Read the statements carefully to identify all attributes, entities, and data points mentioned, whether explicitly stated or implicitly implied.
+Determine the row headers (primary keys) and column headers required to represent the data comprehensively and concisely:
+Row headers are the unique identifiers for individual rows (key entities).
+Column headers are the attributes of the primary keys that represent different aspects or data points.
+Include all explicit and implicit data points, ensuring no relevant information is overlooked. 
+Pay close attention to numerical data, even if it is presented within comparative statements or descriptions of events or related to specific categories or time periods mentioned in the text. 
+Explicit numerical data must always be captured as attributes where appropriate. 
+Implicit data points or recurring attributes must also be included.
+Avoid adding actions as column headers but extract any data points associated with them.
+Ensure that all numerical values are captured as attributes, even if they are related to specific time periods or events within the context. When encountering comparative statements or ratios like "X of Y", ensure you capture both 'X' and 'Y' as potentially distinct and relevant data points if they represent different aspects of an attribute.
+Be attentive to granular details and avoid focusing solely on general or aggregate values if more specific data points are available in the text.
+
+***OUTPUT FORMAT***:
+<REASONING STEPS>
+
+### Final Schema:
+{
+    "<Table name>": {
+        "row_headers": ["Row Header 1", ...],
+        "column_headers": ["Column Header 1", ...]
+    }
+    ...
+}
+
+
+***REASONING STEPS***:
+**Sample input**:
+The Oklahoma City Thunder's record is 16 wins.
+The Oklahoma City Thunder's record is 17 losses.
+The Phoenix Suns' record is 18 wins.
+The Phoenix Suns' record is 16 losses.
+The Oklahoma City Thunder defeated the Phoenix Suns in overtime on Wednesday.
+The Oklahoma City Thunder scored 137 points.
+The Phoenix Suns scored 134 points.
+Oklahoma City Thunder has won three of their last four games.
+Kevin Durant returned to play after a six-game absence due to an ankle sprain.
+Kevin Durant scored a season-high 44 points in the game.
+Kevin Durant played 40 minutes during the game.
+
+**Step1 - Identify the context from all the statements to generate a short description**
+Thought: This is a summary of a basketball game played between the Oklahoma City Thunder and the Phoenix Suns and gives all the relevant statistics about the players and the games. Every statement is either about the team or one of the players hence it would be ideal to create to separate tables for them. One table for the teams, and one for the players.
+
+**Step2 - Create a empty list of row and column headers for the tables. This list would be updated as we keep on processing the statements and will keep adding relevant column and row headers to the list.**
+*Intermediate output*: 
+{
+    "Team": {
+    "row_headers": [],
+    "column_headers": [], 
+    }
+    "Player": {
+        "row_headers": [],
+        "col_headers": []
+    }
+}
+
+**Step 3 - Process statements one by one and add relevant headers if not already present in the list.**
+
+*Statements processed*:
+1. The Oklahoma City Thunder's record is 16 wins.
+*Schema update*:
+    - Update in "Team" table
+        - Row added: "Thunder"
+        - Column added: "Wins"
+
+2. The Oklahoma City Thunder's record is 17 losses.
+*Schema update*:
+    - Update in "Team" table
+        - Row added: None ("Thunder" is already present in the schema)
+        - Column added: "Losses"
+
+3. The Phoenix Suns' record is 18 wins.
+*Schema update*:
+    - Update in "Team" table
+        - Row added: "Suns"
+        - Column added: None ("Wins" is already present in the schema)
+
+4. The Phoenix Suns' record is 16 losses.
+*Schema update*:
+    - Update in "Team" table
+        - Row added: None ("Suns" is already present in the schema)
+        - Column added: None ("Losses" is already present in the schema)
+
+5. The Oklahoma City Thunder defeated the Phoenix Suns in overtime on Wednesday.
+*Schema update*:
+    - Update in "Team" table
+        - Row added: None
+        - Column added: None
+
+6. The Oklahoma City Thunder scored 137 points.
+*Schema update*:
+    - Update in "Team" table
+        - Row added: None ("Thunder" is already present in the schema)
+        - Column added: "Total points"
+
+7. The Phoenix Suns scored 134 points.
+*Schema update*:
+    - Update in "Team" table
+        - Row added: None ("Suns" is already present in the schema)
+        - Column added: None ("Total points" is already present in the schema)
+
+
+8. Oklahoma City Thunder has won three of their last four games.
+*Schema update*:
+    - Update in "Team" table
+        - Row added: None
+        - Column added: None
+
+
+9. Kevin Durant returned to play after a six-game absence due to an ankle sprain.
+*Schema update*:
+    - Update in "Team" table
+        - Row added: None
+        - Column added: None 
+    - Update in "Player" table
+        - Row added: "Kevin Durant"
+        - Column added: None
+
+
+10. Kevin Durant scored a season-high 44 points in the game.
+*Schema update*:
+    - Update in "Team" table
+        - Row added: None
+        - Column added: None 
+    - Update in "Player" table
+        - Row added: None ("Kevin Durant" is already present in the schema)
+        - Column added: "Points"
+
+10. Kevin Durant played 40 minutes during the game.
+*Schema update*:
+    - Update in "Team" table
+        - Row added: None
+        - Column added: None 
+    - Update in "Player" table
+        - Row added: None ("Kevin Durant" is already present in the schema)
+        - Column added: "Minutes played"
+
+
+### Final Schema:
+{
+    "Team": {
+    "row_headers": ["Thunder", "Suns"],
+    "column_headers": ["Wins", "Losses", "Total points"]
+    }
+    "Player": {
+        "row_headers": ["Kevin Durant"],
+        "col_headers": ["Points", "Minutes played"]
+    }
+}
+
+***Final Output Instructions***:
+1. As shown in the illustration above, for *every given statement* return the updates done to the schema and generate the Team Table and Player Table schema.
+2. Do not return schema directly in any case.
+3. Provide the *OUTPUT* with *REASONING STEPS* in the specified format only.
+
