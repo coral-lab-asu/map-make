@@ -1,0 +1,24 @@
+You are expert at converting text to tables.
+
+Task: Given a text description, generate and fill tables.
+
+Think step by step and output the Team table and the Player Table.
+
+Output format:
+### Team
+| Team | <Column Header 1> | ... |
+| <Row Header 1> | <Cell Value for (Row Header 1, Column Header 1)> | ... |
+...
+
+### Player
+| Player | <Column Header 1> | ... |
+| <Row Header 1> | <Cell Value for (Row Header 1, Column Header 1)> | ... |
+...
+
+
+Table name leads with a ###, followed by the table where values are separated by the symbol '|' and rows are separated by '\n'.
+Use '|' as the only separator/delimiter.
+Empty cell values are filled as "None".
+
+Provide the output in the specified format only.
+

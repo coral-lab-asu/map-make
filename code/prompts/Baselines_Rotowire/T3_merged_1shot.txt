@@ -1,0 +1,39 @@
+Instruction: Process the given text and generate Player and Team tables.
+
+Let’s do the following tasks:
+1. Extract team and player information from the following input. Please focus on the table format and extract all relevant tuples in (team or player name, attribute, value) format.
+2. Integrate these tuples into two tables in the output format given below.
+
+
+Illustration :
+Input: The Oklahoma City Thunder (16 - 17) defeated the Phoenix Suns (18 - 16) 137 - 134 in overtime on Wednesday. Oklahoma City has won three of their last four games. Kevin Durant returned from a six - game absence due to an ankle sprain and put up a season - high 44 points in 40 minutes.
+
+Output:
+### Team
+| Team | Wins | Losses | Total Points |
+| Thunder | 16 | 17| None |
+| Suns | 18 | None | 134 |
+
+### Player
+| Player | Points | Minutes Played |
+| Kevin Durant | 44 | 40 |
+
+**Output Format**:
+
+### Team
+| Team | <Column Header 1> | ... |
+| <Row Header 1> | <Cell Value for (Row Header 1, Column Header 1)> | ... |
+...
+
+### Player
+| Player | <Column Header 1> | ... |
+| <Row Header 1> | <Cell Value for (Row Header 1, Column Header 1)> | ... |
+...
+
+Table name leads with a ###, followed by the table where values are separated by the symbol '|' and rows are separated by '\n'.
+Use '|' as the only separator/delimiter.
+Empty cell values are filled as "None".
+Provide the output in the specified format only.
+
+
+

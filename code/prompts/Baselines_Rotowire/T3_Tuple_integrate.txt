@@ -1,0 +1,16 @@
+Instruction: According to the live text, please count the number of events of both teams.
+Note that goals and saved attempts and blocked attempts and missed attempts are considered shots. Handball and dangerous play are also considered foul. The second yellow card is also considered a red card. Penalty is also considered as free kicks.
+
+Task:
+Write valid, executable Python code that defines and runs a function `consolidate_events(event_tuples)` which:
+- Accepts the list of tuples as input.
+- Returns a structured dictionary (or another data structure) mapping each team (e.g., "Home Team" and "Away Team") to a count of each event.
+
+Final Output Instructions:
+- The output must be *pure Python code* with no markdown delimiters (i.e., do not include triple backticks in your output).
+- Do not output any additional text or explanation.
+- Ensure you call the function within the code to execute it.
+- Include any necessary error handling to ensure the code executes without issues.
+
+
+

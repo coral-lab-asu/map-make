@@ -1,0 +1,53 @@
+Instruction: You are now required to extract team and player information from the following input.
+Please only output tables in the specified format based on the given tuples.
+
+Illustration:
+
+Sample Input:
+
+Tuples:
+1. (Oklahoma City Thunder, Record, 16-17)
+2. (Phoenix Suns, Record, 18-16)
+3. (Oklahoma City Thunder, Points Scored, 137)
+4. (Phoenix Suns, Points Scored, 134)
+5. (Oklahoma City Thunder, Game Outcome, Win)
+6. (Phoenix Suns, Game Outcome, Loss)
+7. (Oklahoma City Thunder, Recent Performance, Won 3 of last 4 games)
+8. (Kevin Durant, Injury, Ankle Sprain)
+9. (Kevin Durant, Games Missed, 6)
+10. (Kevin Durant, Points Scored, 44)
+11. (Kevin Durant, Minutes Played, 40)
+12. (Kevin Durant, Season-High, 44 points)
+
+
+Output:
+### Team
+| Team | Wins | Losses | Total Points |
+| Thunder | 16 | 17| None |
+| Suns | 18 | None | 134 |
+
+### Player
+| Player | Points | Minutes Played |
+| Kevin Durant | 44 | 40 |
+
+
+**Output Format**:
+
+### Team
+| Team | <Column Header 1> | ... |
+| <Row Header 1> | <Cell Value for (Row Header 1, Column Header 1)> | ... |
+...
+
+### Player
+| Player | <Column Header 1> | ... |
+| <Row Header 1> | <Cell Value for (Row Header 1, Column Header 1)> | ... |
+...
+
+
+Table name leads with a ###, followed by the table where values are separated by the symbol '|' and rows are separated by '\n'.
+Use '|' as the only separator/delimiter.
+Empty cell values are filled as "None".
+Provide the output in the specified format only.
+
+
+
