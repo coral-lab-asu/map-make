@@ -40,6 +40,68 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  
+  <style>
+    /* Custom styling for improved visual appeal */
+    body {
+      font-family: 'Google Sans', 'Noto Sans', sans-serif;
+    }
+    
+    .section {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+    
+    a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    a:hover {
+      color: #764ba2;
+      text-decoration: underline;
+    }
+    
+    .hero.teaser {
+      padding: 1.5rem 0;
+    }
+    
+    img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15) !important;
+    }
+    
+    .title {
+      font-weight: 700;
+    }
+    
+    .subtitle {
+      color: #4a5568;
+    }
+    
+    pre {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Button hover effects */
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+  </style>
 </head>
 <body>
 
@@ -132,15 +194,27 @@
   </div>
 </section>
 
+<!-- Hero Teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/hero.png" alt="Map&Make vs Traditional Methods" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+      <h2 class="subtitle has-text-centered" style="margin-top: 1.5rem; font-size: 1.1rem;">
+        Map&Make scales test-time compute through modular decomposition for improved text-to-table generation
+      </h2>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract -->
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
+        <h2 class="title is-3 has-text-centered">Abstract</h2>
+        <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7;">
           <p>
-            Transforming dense, unstructured text into interpretable tables is essential for information extraction. We introduce <strong>Map&Make</strong>, a prompting pipeline that scales test-time compute to improve information coverage and integration across diverse text-to-table tasks. Our approach decomposes text into atomic propositions, extracts latent schemas, and generates tables capturing both qualitative nuances and quantitative facts. We evaluate on three challenging datasets: <strong>RotoWire</strong> (complex multi-table schema), <strong>Livesum</strong> (numerical aggregation), and <strong>Wiki40B</strong> (open-domain extraction). By correcting hallucination errors in RotoWire, we provide a cleaner benchmark. Map&Make demonstrates significant gains across comprehensive metrics and enables effective supervision for fine-tuning smaller models.
+            Transforming dense, unstructured text into interpretable tables is essential for information extraction. We introduce <strong>Map&Make</strong>, a prompting pipeline that scales test-time compute to improve information coverage and integration across diverse text-to-table tasks. Our approach decomposes text into atomic propositions, extracts latent schemas, and generates tables capturing both qualitative nuances and quantitative facts. We evaluate on three challenging datasets: <strong><a href="https://github.com/harvardnlp/boxscore-data" target="_blank">RotoWire</a></strong> (complex multi-table schema), <strong><a href="https://github.com/HKUST-KnowComp/LiveSum" target="_blank">Livesum</a></strong> (numerical aggregation), and <strong>Wiki40B</strong> (open-domain extraction). By correcting hallucination errors in RotoWire, we provide a cleaner benchmark. Map&Make demonstrates significant gains across comprehensive metrics and enables effective supervision for fine-tuning smaller models.
           </p>
         </div>
       </div>
@@ -149,14 +223,17 @@
 </section>
 
 <!-- Introduction -->
-<section class="section" style="padding-top: 1rem;">
+<section class="section" style="padding-top: 1rem; background-color: #fafafa;">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Introduction</h2>
-        <div class="content has-text-justified">
+        <h2 class="title is-3 has-text-centered">Introduction</h2>
+        <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7;">
           <p>
-            Text-to-table generation requires extracting structured information from unstructured narratives—a task that challenges current LLMs in determining <em>what</em> to extract and <em>how</em> to infer missing information. Map&Make addresses these challenges through a modular pipeline that scales test-time computation: atomizing text into propositions, extracting schemas, and generating tables. This approach improves performance across datasets with different characteristics—from sports summaries requiring complex schemas to live data demanding numerical reasoning to open-domain content needing flexible extraction.
+            Text-to-table generation requires extracting structured information from unstructured narratives—a task that challenges current LLMs in determining <em>what</em> to extract and <em>how</em> to infer missing information. Map&Make addresses these challenges through a modular pipeline that scales test-time computation: atomizing text into propositions, extracting schemas, and generating tables.
+          </p>
+          <p>
+            This approach improves performance across datasets with different characteristics—from sports summaries requiring complex schemas to live commentary demanding numerical reasoning to open-domain content needing flexible extraction.
           </p>
         </div>
       </div>
@@ -166,15 +243,22 @@
 
 
 <!-- Datasets -->
-<section class="section" style="padding-top: 1rem;">
+<section class="section" style="padding-top: 1.5rem;">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Datasets</h2>
-        <div class="content has-text-justified">
-          <p>
-            We evaluate on three diverse benchmarks: <strong>RotoWire</strong> (728 NBA game summaries requiring multi-table schemas), <strong>Livesum</strong> (1,462 Chinese social media posts with numerical aggregation), and <strong>Wiki40B</strong> (100 open-domain articles spanning diverse topics). For RotoWire, we provide a corrected test set addressing hallucination errors in the original annotations (available on <a href="https://huggingface.co/datasets/McH04/Rotowire-Text-to-Table">Hugging Face</a>). These datasets collectively stress-test schema flexibility, numerical reasoning, and information coverage.
+        <h2 class="title is-3 has-text-centered">Datasets</h2>
+        <div class="content" style="font-size: 1.05rem; line-height: 1.7;">
+          <p style="text-align: justify;">
+            We evaluate on three diverse benchmarks that stress-test different aspects of text-to-table generation:
           </p>
+          <div style="margin-left: 1.5rem; margin-top: 1rem;">
+            <p><strong>🏀 RotoWire</strong> (<a href="https://github.com/harvardnlp/boxscore-data" target="_blank">Wiseman et al., 2017</a>): 728 NBA game summaries requiring complex multi-table schemas with player and team statistics. Following concerns raised by <a href="https://aclanthology.org/2022.emnlp-main.730/" target="_blank">Wu et al. (2022)</a> and <a href="https://aclanthology.org/2024.lrec-main.1354/" target="_blank">Strucbench (2024)</a>, we provide a <strong>corrected test set</strong> addressing hallucination errors in the original annotations—<a href="https://huggingface.co/datasets/McH04/Rotowire-Text-to-Table" target="_blank" style="font-weight: 600;">available on Hugging Face</a>.</p>
+            
+            <p style="margin-top: 0.8rem;"><strong>⚽ Livesum</strong> (<a href="https://github.com/HKUST-KnowComp/LiveSum" target="_blank">Liu et al., 2021</a>): 1,462 line-by-line football commentaries requiring numerical aggregation into player and team tables, testing numerical reasoning across diverse event categories.</p>
+            
+            <p style="margin-top: 0.8rem;"><strong>📚 Wiki40B</strong>: 100 open-domain Wikipedia articles spanning diverse topics, requiring flexible schema extraction without predefined structures.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -182,33 +266,56 @@
 </section>
 
 <!-- Evaluation Metrics -->
-<section class="section" style="padding-top: 1rem;">
+<section class="section" style="padding-top: 1.5rem; background-color: #fafafa;">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Evaluation</h2>
-        <div class="content has-text-justified">
+        <h2 class="title is-3 has-text-centered">Evaluation</h2>
+        <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7;">
           <p>
-            We employ both <strong>comparative metrics</strong> (Exact Match, chrF, BERTScore) for cell-level accuracy and <strong>referenceless metrics</strong> to assess table quality without gold references. <strong>TabEval</strong> uses entailment models to verify table-text consistency, while <strong>AutoQA</strong> measures question-answering fidelity. For numerical tasks, we report error rates and RMSE to capture aggregation accuracy. This comprehensive evaluation suite enables robust assessment across different dataset characteristics.
+            We employ a comprehensive evaluation suite combining <strong>comparative metrics</strong> and <strong>referenceless metrics</strong>:
           </p>
+          <ul style="margin-top: 1rem;">
+            <li><strong>Comparative Metrics:</strong> Exact Match, chrF, and BERTScore for cell-level accuracy against gold annotations.</li>
+            <li><strong>TabEval</strong> (<a href="https://aclanthology.org/2024.emnlp-main.1239/" target="_blank">Ramu et al., EMNLP 2024</a>): Entailment-based evaluation that captures table semantics by comparing atomic statements, providing stronger correlation with human judgments.</li>
+            <li><strong>AutoQA:</strong> Question-answering fidelity to measure information coverage without requiring gold tables.</li>
+            <li><strong>Numerical Metrics:</strong> Error rates and RMSE for aggregation accuracy on Livesum.</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="padding-top: 1rem;">
+<section class="section" style="padding-top: 1.5rem;">
   <div class="container is-max-desktop">
     <!-- Key Idea: Framework -->
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Key Idea: Map&Make Pipeline</h2>
-        <div class="content has-text-justified">
-          <p>
-            Map&Make is a modular 3-step prompting pipeline that scales test-time compute: <strong>(1) Atomization</strong> decomposes text into atomic propositions, <strong>(2) Schema Extraction</strong> identifies latent table structures, and <strong>(3) Table Generation</strong> populates cells using extracted information. This decomposition enables better information coverage and integration compared to end-to-end approaches, allowing the model to reason step-by-step about what to extract and how to structure it.
+        <h2 class="title is-3 has-text-centered">Key Idea: Map&Make Pipeline</h2>
+        
+        <!-- Highlight Box -->
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          <p style="font-size: 1.15rem; font-weight: 500; margin: 0; text-align: center;">
+            🎯 <strong>Core Innovation:</strong> Scaling test-time compute through modular decomposition
           </p>
-          <br>
-          <img src="./static/images/M&M.jpg" alt="Map&Make Framework"/>
+        </div>
+        
+        <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7;">
+          <p>
+            Map&Make is a modular <strong>3-step prompting pipeline</strong> that enables step-by-step reasoning:
+          </p>
+          <div style="margin-left: 1.5rem; margin-top: 1rem; margin-bottom: 1.5rem;">
+            <p><strong>1️⃣ Atomization:</strong> Decomposes text into atomic propositions for granular information extraction</p>
+            <p style="margin-top: 0.6rem;"><strong>2️⃣ Schema Extraction:</strong> Identifies latent table structures from atomized facts</p>
+            <p style="margin-top: 0.6rem;"><strong>3️⃣ Table Generation:</strong> Populates cells using extracted schema and information</p>
+          </div>
+          <p>
+            This decomposition enables better information coverage and integration compared to end-to-end approaches, allowing models to reason explicitly about <em>what</em> to extract and <em>how</em> to structure it.
+          </p>
+        </div>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <img src="./static/images/M&M.jpg" alt="Map&Make Framework" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"/>
         </div>
       </div>
     </div>
@@ -216,50 +323,65 @@
 </section>
 
 <!-- Results Section -->
-<section class="section">
+<section class="section" style="background-color: #fafafa;">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
+    <h1 class="title is-2 has-text-centered" style="margin-bottom: 2rem;">Results</h1>
+    
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h1 class="title is-2">Results</h1>
         
         <!-- RotoWire: Comparative Metrics -->
-        <h2 class="title is-3">RotoWire: Comparative Metrics</h2>
-        <div class="content has-text-justified">
-          <p>
-            Map&Make outperforms Chain-of-Thought and T3 baselines across cell-level metrics (Exact Match, chrF, BERTScore) on both GPT-4o and Gemini-2.0. The modular pipeline's step-by-step reasoning improves extraction accuracy, particularly for complex multi-table schemas with player and team statistics.
-          </p>
+        <div style="margin-bottom: 3rem;">
+          <h2 class="title is-4" style="color: #667eea; margin-bottom: 1rem;">🏀 RotoWire: Comparative Metrics</h2>
+          <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            <p>
+              Map&Make outperforms <a href="https://arxiv.org/abs/2201.11903" target="_blank">Chain-of-Thought</a> and T3 baselines across cell-level metrics (Exact Match, chrF, BERTScore) on both GPT-4o and Gemini-2.0. The modular pipeline's step-by-step reasoning improves extraction accuracy, particularly for complex multi-table schemas with player and team statistics.
+            </p>
+          </div>
+          <div style="text-align: center;">
+            <img src="./static/images/table2.png" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/>
+          </div>
         </div>
-        <img src="./static/images/table2.png" width="600"/>
-        <br><br>
 
         <!-- RotoWire: Referenceless Metrics -->
-        <h2 class="title is-3">RotoWire: Referenceless Metrics</h2>
-        <div class="content has-text-justified">
-          <p>
-            Using TabEval (entailment-based evaluation) and AutoQA (question-answering fidelity), Map&Make demonstrates superior table-text consistency and information coverage. These referenceless metrics confirm that our pipeline generates tables more faithful to the source text, beyond just matching gold annotations.
-          </p>
+        <div style="margin-bottom: 3rem;">
+          <h2 class="title is-4" style="color: #667eea; margin-bottom: 1rem;">🏀 RotoWire: Referenceless Metrics</h2>
+          <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            <p>
+              Using <a href="https://aclanthology.org/2024.emnlp-main.1239/" target="_blank">TabEval</a> (entailment-based evaluation) and AutoQA (question-answering fidelity), Map&Make demonstrates superior table-text consistency and information coverage. These referenceless metrics confirm that our pipeline generates tables more faithful to the source text, beyond just matching gold annotations.
+            </p>
+          </div>
+          <div style="text-align: center;">
+            <img src="./static/images/table3.png" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/>
+          </div>
         </div>
-        <img src="./static/images/table3.png" width="600"/>
-        <br><br>
 
         <!-- Livesum -->
-        <h2 class="title is-3">Livesum: Numerical Aggregation</h2>
-        <div class="content has-text-justified">
-          <p>
-            On Livesum, which requires numerical reasoning and aggregation from Chinese social media posts, Map&Make achieves lower error rates and RMSE across different event categories. The pipeline's atomization step helps identify individual numerical facts before aggregation, reducing both undercounting and overcounting errors.
-          </p>
+        <div style="margin-bottom: 3rem;">
+          <h2 class="title is-4" style="color: #764ba2; margin-bottom: 1rem;">⚽ Livesum: Numerical Aggregation</h2>
+          <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            <p>
+              On <a href="https://github.com/HKUST-KnowComp/LiveSum" target="_blank">Livesum</a>, which requires aggregating line-by-line football commentary into player and team statistics, Map&Make achieves lower error rates and RMSE across different event categories. The pipeline's atomization step helps identify individual events before aggregation, reducing both undercounting and overcounting errors in numerical reasoning.
+            </p>
+          </div>
+          <div style="text-align: center;">
+            <img src="./static/images/table4.png" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/>
+          </div>
         </div>
-        <img src="./static/images/table4.png" width="600"/>
-        <br><br>
 
         <!-- Wiki40B -->
-        <h2 class="title is-3">Wiki40B: Open-Domain Extraction</h2>
-        <div class="content has-text-justified">
-          <p>
-            Wiki40B tests open-domain table extraction from diverse Wikipedia articles without predefined schemas. Map&Make's schema extraction step enables flexible adaptation to varied content types, demonstrating the pipeline's generalizability beyond sports and numerical aggregation tasks to arbitrary structured information extraction.
-          </p>
+        <div style="margin-bottom: 2rem;">
+          <h2 class="title is-4" style="color: #48bb78; margin-bottom: 1rem;">📚 Wiki40B: Open-Domain Extraction</h2>
+          <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            <p>
+              Wiki40B tests open-domain table extraction from diverse Wikipedia articles without predefined schemas. Map&Make's schema extraction step enables flexible adaptation to varied content types, demonstrating the pipeline's generalizability beyond sports and numerical aggregation tasks to arbitrary structured information extraction.
+            </p>
+          </div>
+          <div style="text-align: center;">
+            <img src="./static/images/wiki40B-results.png" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/>
+          </div>
         </div>
-        <img src="./static/images/wiki40B-results.png" width="600"/>
+        
       </div>
     </div>
   </div>
@@ -269,57 +391,90 @@
 <!-- Analysis Section -->
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
+    <h1 class="title is-2 has-text-centered" style="margin-bottom: 2rem;">Analysis</h1>
+    
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h1 class="title is-2">Analysis</h1>
         
-        <h2 class="title is-3">Error Patterns</h2>
-        <div class="content has-text-justified">
-          <p>
-            Analyzing error patterns on RotoWire reveals that Map&Make reduces both row and column errors compared to baselines, demonstrating improved schema coverage and entity recognition. The modular approach helps maintain consistency across table dimensions.
-          </p>
+        <!-- Error Patterns -->
+        <div style="margin-bottom: 3rem;">
+          <h2 class="title is-4" style="color: #667eea; margin-bottom: 1rem;">📊 Error Patterns on RotoWire</h2>
+          <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            <p>
+              Analyzing error patterns reveals that Map&Make reduces both row and column errors compared to baselines, demonstrating improved schema coverage and entity recognition. The modular approach helps maintain consistency across table dimensions.
+            </p>
+          </div>
+          <div style="text-align: center;">
+            <img src="./static/images/table5.png" style="max-width: 450px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/>
+          </div>
         </div>
-        <img src="./static/images/table5.png" width="400"/>
-        <br><br>
 
-        <h2 class="title is-3">Numerical Reasoning</h2>
-        <div class="content has-text-justified">
-          <p>
-            On Livesum, we analyze overcounting (values exceeding ground truth) vs. undercounting (values below ground truth). Map&Make shows balanced RMSE across both error types, indicating more reliable numerical aggregation through its atomization-based approach.
-          </p>
+        <!-- Numerical Reasoning -->
+        <div style="margin-bottom: 3rem;">
+          <h2 class="title is-4" style="color: #764ba2; margin-bottom: 1rem;">🔢 Numerical Reasoning on Livesum</h2>
+          <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            <p>
+              We analyze overcounting (values exceeding ground truth) vs. undercounting (values below ground truth). Map&Make shows balanced RMSE across both error types, indicating more reliable numerical aggregation through its atomization-based approach.
+            </p>
+          </div>
+          <div style="text-align: center;">
+            <img src="./static/images/rmse_comparison.png" style="max-width: 550px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/>
+          </div>
         </div>
-        <img src="./static/images/rmse_comparison.png" width="500"/>
-        <br><br>
 
-        <h2 class="title is-3">Schema Coverage Scaling</h2>
-        <div class="content has-text-justified">
-          <p>
-            As table sizes increase on RotoWire, Map&Make maintains higher schema coverage compared to baselines. The explicit schema extraction step enables the model to identify and populate more diverse column types, especially for complex multi-table scenarios.
-          </p>
+        <!-- Schema Coverage -->
+        <div style="margin-bottom: 2rem;">
+          <h2 class="title is-4" style="color: #48bb78; margin-bottom: 1rem;">📈 Schema Coverage Scaling</h2>
+          <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            <p>
+              As table sizes increase on RotoWire, Map&Make maintains higher schema coverage compared to baselines. The explicit schema extraction step enables the model to identify and populate more diverse column types, especially for complex multi-table scenarios.
+            </p>
+          </div>
+          <div style="text-align: center;">
+            <img src="./static/images/trend.png" style="max-width: 550px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/>
+          </div>
         </div>
-        <img src="./static/images/trend.png" width="500"/>
+        
       </div>
     </div>
   </div>
 </section>
 
 <!-- Fine-Tuning Section -->
-<section class="section">
+<section class="section" style="background-color: #fafafa;">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
+    <h1 class="title is-2 has-text-centered" style="margin-bottom: 2rem;">Fine-Tuning Smaller Models</h1>
+    
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h1 class="title is-2">Fine-Tuning Smaller Models</h1>
-        <div class="content has-text-justified">
+        
+        <!-- Stat Highlight -->
+        <div style="display: flex; justify-content: space-around; margin-bottom: 2rem; flex-wrap: wrap;">
+          <div style="background: linear-gradient(135deg, #48bb78, #38a169); color: white; padding: 1.5rem; border-radius: 10px; flex: 1; margin: 0.5rem; min-width: 200px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <div style="font-size: 2rem; font-weight: bold;">48.65</div>
+            <div style="font-size: 0.9rem; margin-top: 0.5rem;">AutoQA Score</div>
+            <div style="font-size: 0.8rem; opacity: 0.9;">vs. 41.42 CoT</div>
+          </div>
+          <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 1.5rem; border-radius: 10px; flex: 1; margin: 0.5rem; min-width: 200px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <div style="font-size: 2rem; font-weight: bold;">61.58%</div>
+            <div style="font-size: 0.9rem; margin-top: 0.5rem;">Player Recall</div>
+            <div style="font-size: 0.8rem; opacity: 0.9;">vs. 57.74% CoT</div>
+          </div>
+        </div>
+        
+        <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7;">
           <p>
-            Beyond inference-time prompting, Map&Make serves as a scalable data generation engine. We used Gemini 2.0 with our pipeline to generate high-quality supervision on the RotoWire training set, then fine-tuned LLaMA 3 8B Instruct. Results show that fine-tuning with Map&Make-generated data yields clear gains over Chain-of-Thought prompting in AutoQA (48.65 vs. 41.42) and player-level recall (61.58 vs. 57.74).
+            Beyond inference-time prompting, <strong>Map&Make serves as a scalable data generation engine</strong>. We used Gemini 2.0 with our pipeline to generate high-quality supervision on the RotoWire training set, then fine-tuned <strong>LLaMA 3 8B Instruct</strong>. Results show that fine-tuning with Map&Make-generated data yields clear gains over Chain-of-Thought prompting in AutoQA and player-level recall.
           </p>
-          <br>
-          <p>
+          <p style="margin-top: 1rem;">
             However, team-level recall drops (41.61 vs. 56.26), indicating challenges in aggregating broader content—likely due to formatting consistency and long-context reasoning limitations in smaller models. While the full Map&Make pipeline (inference-time) still outperforms both alternatives, these results demonstrate the framework's effectiveness as a data generation tool for low-resource and multilingual settings where fine-tuning is necessary.
           </p>
         </div>
-        <br>
-        <img src="./static/images/fine-tuning.png" width="600"/>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+          <img src="./static/images/fine-tuning.png" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/>
+        </div>
+        
       </div>
     </div>
   </div>
@@ -330,10 +485,10 @@
 </section>
 
 
-<section class="section" id="BibTeX">
+<section class="section" id="BibTeX" style="background-color: #f9f9f9;">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{ahuja-etal-2025-map,
+    <h2 class="title has-text-centered" style="margin-bottom: 1.5rem;">BibTeX</h2>
+    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 1.5rem; border-radius: 8px; overflow-x: auto; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"><code>@inproceedings{ahuja-etal-2025-map,
     title = "Map{\&}Make: Schema Guided Text to Table Generation",
     author = "Ahuja, Naman  and
       Bardoliya, Fenil  and
@@ -358,30 +513,29 @@
 </section>
 
 
-<footer class="footer">
+<footer class="footer" style="background-color: #2d3748; color: #e2e8f0; padding: 2rem 0;">
   <div class="container">
-    <!-- <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div> -->
     <div class="columns is-centered">
-      <div class="column is-8">
+      <div class="column is-8 has-text-centered">
         <div class="content">
-          <!-- <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p> -->
-          <p>
-            This page was adopted from the <a
-              href="https://nerfies.github.io">Nerfies</a> project page.
-            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          <p style="margin-bottom: 1rem; font-size: 1rem;">
+            <strong style="color: white;">Map&Make</strong> — Schema Guided Text to Table Generation
           </p>
+          <p style="font-size: 0.9rem; color: #cbd5e0;">
+            This page was adopted from the <a href="https://nerfies.github.io" target="_blank" style="color: #667eea;">Nerfies</a> project page.
+            Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" style="color: #667eea;">CC BY-SA 4.0</a>.
+          </p>
+          <div style="margin-top: 1.5rem;">
+            <a href="https://arxiv.org/abs/2505.23174" target="_blank" style="color: #e2e8f0; margin: 0 0.5rem;">
+              <i class="ai ai-arxiv" style="font-size: 1.5rem;"></i>
+            </a>
+            <a href="https://github.com/coral-lab-asu/map-make" target="_blank" style="color: #e2e8f0; margin: 0 0.5rem;">
+              <i class="fab fa-github" style="font-size: 1.5rem;"></i>
+            </a>
+            <a href="https://huggingface.co/datasets/McH04/Rotowire-Text-to-Table" target="_blank" style="color: #e2e8f0; margin: 0 0.5rem;">
+              <i class="fas fa-database" style="font-size: 1.5rem;"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
