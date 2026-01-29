@@ -72,16 +72,6 @@
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
-              <!-- <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span> -->
               <span class="link-block">
                 <a href="https://arxiv.org/abs/2505.23174"
                    class="external-link button is-normal is-rounded is-dark">
@@ -92,15 +82,27 @@
                 </a>
               </span>
               <!-- Video Link. -->
-              <!-- <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
+              <span class="link-block">
+                <a href="https://drive.google.com/file/d/16sZNx_Ll0hk0nNpHd-KVriozSde8BvBE/view?usp=drivesdk"
+                   class="external-link button is-normal is-rounded is-dark"
+                   target="_blank" rel="noopener">
                   <span class="icon">
-                      <i class="fab fa-youtube"></i>
+                      <i class="fas fa-video"></i>
                   </span>
                   <span>Video</span>
                 </a>
-              </span> -->
+              </span>
+              <!-- Presentation Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/file/d/1lunNBjeLNCwK7Ss4FGaFDLr86OiaQyCt/view?usp=sharing"
+                   class="external-link button is-normal is-rounded is-dark"
+                   target="_blank" rel="noopener">
+                  <span class="icon">
+                      <i class="fas fa-file-powerpoint"></i>
+                  </span>
+                  <span>Slides</span>
+                </a>
+              </span>
               <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/coral-lab-asu/map-make/tree/main/code"
@@ -130,90 +132,31 @@
   </div>
 </section>
 
-<!-- <section class="hero teaser">
+<section class="section">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section> -->
-
-
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<section class="footer">
-  <div class="container is-max-desktop">
-<!-- Abstract. -->
+    <!-- Abstract -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Transforming dense, detailed, unstructured text into an interpretable and summarised table, also colloquially known as Text-to-Table generation, is an essential task for information retrieval. Current methods, however, miss out on how and what complex information to extract; they also lack the ability to infer data from the text. In this paper, we introduce a versatile approach, Map&Make, which ''dissects'' text into propositional atomic statements. This facilitates granular decomposition to extract the latent schema. The schema is then used to populate the tables that capture the qualitative nuances and the quantitative facts in the original text. Our approach is tested against two challenging datasets, Rotowire, renowned for complex and multi-table schema, and Livesum, which demands numerical aggregation. By carefully identifying and correcting hallucination errors in Rotowire, we aim to achieve a cleaner and more reliable benchmark. We evaluate our method rigorously on a comprehensive suite of comparative and referenceless metrics. Our findings demonstrate significant improvement results across both datasets with better interpretability in Text-to-Table generation. 
-            
-            Moreover, through detailed ablation studies and analyses, we investigate the factors contributing to superior performance and validate the practicality of our framework in structured summarization tasks.
+            Transforming dense, unstructured text into interpretable tables is essential for information extraction. We introduce <strong>Map&Make</strong>, a prompting pipeline that scales test-time compute to improve information coverage and integration across diverse text-to-table tasks. Our approach decomposes text into atomic propositions, extracts latent schemas, and generates tables capturing both qualitative nuances and quantitative facts. We evaluate on three challenging datasets: <strong>RotoWire</strong> (complex multi-table schema), <strong>Livesum</strong> (numerical aggregation), and <strong>Wiki40B</strong> (open-domain extraction). By correcting hallucination errors in RotoWire, we provide a cleaner benchmark. Map&Make demonstrates significant gains across comprehensive metrics and enables effective supervision for fine-tuning smaller models.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Introduction -->
+<section class="section" style="padding-top: 1rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Introduction</h2>
+        <div class="content has-text-justified">
+          <p>
+            Text-to-table generation requires extracting structured information from unstructured narratives—a task that challenges current LLMs in determining <em>what</em> to extract and <em>how</em> to infer missing information. Map&Make addresses these challenges through a modular pipeline that scales test-time computation: atomizing text into propositions, extracting schemas, and generating tables. This approach improves performance across datasets with different characteristics—from sports summaries requiring complex schemas to live data demanding numerical reasoning to open-domain content needing flexible extraction.
           </p>
         </div>
       </div>
@@ -222,208 +165,168 @@
 </section>
 
 
-<section class="section">
+<!-- Datasets -->
+<section class="section" style="padding-top: 1rem;">
   <div class="container is-max-desktop">
-    <!-- Abstract.
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3">Datasets</h2>
         <div class="content has-text-justified">
           <p>
-            Transforming dense, detailed, unstructured text into an interpretable and summarised table, also colloquially known as Text-to-Table generation, is an essential task for information retrieval. Current methods, however, miss out on how and what complex information to extract; they also lack the ability to infer data from the text. In this paper, we introduce a versatile approach, Map&Make, which ''dissects'' text into propositional atomic statements. This facilitates granular decomposition to extract the latent schema. The schema is then used to populate the tables that capture the qualitative nuances and the quantitative facts in the original text. Our approach is tested against two challenging datasets, Rotowire, renowned for complex and multi-table schema, and Livesum, which demands numerical aggregation. By carefully identifying and correcting hallucination errors in Rotowire, we aim to achieve a cleaner and more reliable benchmark. We evaluate our method rigorously on a comprehensive suite of comparative and referenceless metrics. Our findings demonstrate significant improvement results across both datasets with better interpretability in Text-to-Table generation. 
-            
-            Moreover, through detailed ablation studies and analyses, we investigate the factors contributing to superior performance and validate the practicality of our framework in structured summarization tasks.
+            We evaluate on three diverse benchmarks: <strong>RotoWire</strong> (728 NBA game summaries requiring multi-table schemas), <strong>Livesum</strong> (1,462 Chinese social media posts with numerical aggregation), and <strong>Wiki40B</strong> (100 open-domain articles spanning diverse topics). For RotoWire, we provide a corrected test set addressing hallucination errors in the original annotations (available on <a href="https://huggingface.co/datasets/McH04/Rotowire-Text-to-Table">Hugging Face</a>). These datasets collectively stress-test schema flexibility, numerical reasoning, and information coverage.
           </p>
         </div>
       </div>
-    </div> -->
-    <!-- Framework -->
+    </div>
+  </div>
+</section>
+
+<!-- Evaluation Metrics -->
+<section class="section" style="padding-top: 1rem;">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Framework</h2>
+        <h2 class="title is-3">Evaluation</h2>
         <div class="content has-text-justified">
-          <img src="./static/images/M&M.jpg"
-               alt="M&M Framework"/>
+          <p>
+            We employ both <strong>comparative metrics</strong> (Exact Match, chrF, BERTScore) for cell-level accuracy and <strong>referenceless metrics</strong> to assess table quality without gold references. <strong>TabEval</strong> uses entailment models to verify table-text consistency, while <strong>AutoQA</strong> measures question-answering fidelity. For numerical tasks, we report error rates and RMSE to capture aggregation accuracy. This comprehensive evaluation suite enables robust assessment across different dataset characteristics.
+          </p>
         </div>
       </div>
     </div>
-    <!-- Results-->
+  </div>
+</section>
+
+<section class="section" style="padding-top: 1rem;">
+  <div class="container is-max-desktop">
+    <!-- Key Idea: Framework -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Key Idea: Map&Make Pipeline</h2>
+        <div class="content has-text-justified">
+          <p>
+            Map&Make is a modular 3-step prompting pipeline that scales test-time compute: <strong>(1) Atomization</strong> decomposes text into atomic propositions, <strong>(2) Schema Extraction</strong> identifies latent table structures, and <strong>(3) Table Generation</strong> populates cells using extracted information. This decomposition enables better information coverage and integration compared to end-to-end approaches, allowing the model to reason step-by-step about what to extract and how to structure it.
+          </p>
+          <br>
+          <img src="./static/images/M&M.jpg" alt="Map&Make Framework"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results Section -->
+<section class="section">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h1 class="title is-2">Results</h1>
-        <h2 class="title is-3">Rotowire</h2>
+        
+        <!-- RotoWire: Comparative Metrics -->
+        <h2 class="title is-3">RotoWire: Comparative Metrics</h2>
+        <div class="content has-text-justified">
+          <p>
+            Map&Make outperforms Chain-of-Thought and T3 baselines across cell-level metrics (Exact Match, chrF, BERTScore) on both GPT-4o and Gemini-2.0. The modular pipeline's step-by-step reasoning improves extraction accuracy, particularly for complex multi-table schemas with player and team statistics.
+          </p>
+        </div>
         <img src="./static/images/table2.png" width="600"/>
+        <br><br>
+
+        <!-- RotoWire: Referenceless Metrics -->
+        <h2 class="title is-3">RotoWire: Referenceless Metrics</h2>
         <div class="content has-text-justified">
-          <p>Performance comparison of different methods on Rotowire across models using various string similarity metrics</p>
+          <p>
+            Using TabEval (entailment-based evaluation) and AutoQA (question-answering fidelity), Map&Make demonstrates superior table-text consistency and information coverage. These referenceless metrics confirm that our pipeline generates tables more faithful to the source text, beyond just matching gold annotations.
+          </p>
         </div>
-        <br>
         <img src="./static/images/table3.png" width="600"/>
+        <br><br>
+
+        <!-- Livesum -->
+        <h2 class="title is-3">Livesum: Numerical Aggregation</h2>
         <div class="content has-text-justified">
-          <p>Performance comparison using TabEval and AutoQA on Rotowire across strategies on various models.</p>
+          <p>
+            On Livesum, which requires numerical reasoning and aggregation from Chinese social media posts, Map&Make achieves lower error rates and RMSE across different event categories. The pipeline's atomization step helps identify individual numerical facts before aggregation, reducing both undercounting and overcounting errors.
+          </p>
         </div>
-        <br>
-        <h2 class="title is-3">Livesum</h2>
-        <br>
         <img src="./static/images/table4.png" width="600"/>
+        <br><br>
+
+        <!-- Wiki40B -->
+        <h2 class="title is-3">Wiki40B: Open-Domain Extraction</h2>
         <div class="content has-text-justified">
-          <p>Performance comparison using string similarity metrics across different categories showing Error Rates (in %) and RMSE scores of GPT-4o and Gemini-2.0-flash-exp for Livesum.</p>
+          <p>
+            Wiki40B tests open-domain table extraction from diverse Wikipedia articles without predefined schemas. Map&Make's schema extraction step enables flexible adaptation to varied content types, demonstrating the pipeline's generalizability beyond sports and numerical aggregation tasks to arbitrary structured information extraction.
+          </p>
         </div>
+        <img src="./static/images/wiki40B-results.png" width="600"/>
       </div>
     </div>
   </div>
 </section>
 
 
-<section class="footer">
+<!-- Analysis Section -->
+<section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Analysis</h2>
-        <br>
+        <h1 class="title is-2">Analysis</h1>
+        
+        <h2 class="title is-3">Error Patterns</h2>
+        <div class="content has-text-justified">
+          <p>
+            Analyzing error patterns on RotoWire reveals that Map&Make reduces both row and column errors compared to baselines, demonstrating improved schema coverage and entity recognition. The modular approach helps maintain consistency across table dimensions.
+          </p>
+        </div>
         <img src="./static/images/table5.png" width="400"/>
+        <br><br>
+
+        <h2 class="title is-3">Numerical Reasoning</h2>
         <div class="content has-text-justified">
-          <p>Average Per-Table Error Counts Across Rows and Columns for Rotowire</p>
+          <p>
+            On Livesum, we analyze overcounting (values exceeding ground truth) vs. undercounting (values below ground truth). Map&Make shows balanced RMSE across both error types, indicating more reliable numerical aggregation through its atomization-based approach.
+          </p>
         </div>
-        <br>
         <img src="./static/images/rmse_comparison.png" width="500"/>
+        <br><br>
+
+        <h2 class="title is-3">Schema Coverage Scaling</h2>
         <div class="content has-text-justified">
-          <p>RMSE of Overcounting and Undercounting Instances for Livesum. Uncercounted refers to cell values less than the ground truth, Overcounted refers to cell values more than the ground truths.</p>
+          <p>
+            As table sizes increase on RotoWire, Map&Make maintains higher schema coverage compared to baselines. The explicit schema extraction step enables the model to identify and populate more diverse column types, especially for complex multi-table scenarios.
+          </p>
         </div>
-        <br>
         <img src="./static/images/trend.png" width="500"/>
-        <div class="content has-text-justified">
-          <p>Comparison of Schema-Coverage with Increasing Table Sizes for Rotowire.</p>
-        </div>
       </div>
     </div>
+  </div>
+</section>
 
-      <!-- Visual Effects. -->
-      <!-- <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
+<!-- Fine-Tuning Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h1 class="title is-2">Fine-Tuning Smaller Models</h1>
+        <div class="content has-text-justified">
           <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
+            Beyond inference-time prompting, Map&Make serves as a scalable data generation engine. We used Gemini 2.0 with our pipeline to generate high-quality supervision on the RotoWire training set, then fine-tuned LLaMA 3 8B Instruct. Results show that fine-tuning with Map&Make-generated data yields clear gains over Chain-of-Thought prompting in AutoQA (48.65 vs. 41.42) and player-level recall (61.58 vs. 57.74).
           </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
+          <br>
+          <p>
+            However, team-level recall drops (41.61 vs. 56.26), indicating challenges in aggregating broader content—likely due to formatting consistency and long-context reasoning limitations in smaller models. While the full Map&Make pipeline (inference-time) still outperforms both alternatives, these results demonstrate the framework's effectiveness as a data generation tool for low-resource and multilingual settings where fine-tuning is necessary.
+          </p>
         </div>
-      </div> -->
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <!-- <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
+        <br>
+        <img src="./static/images/fine-tuning.png" width="600"/>
       </div>
-    </div> -->
-    <!--/ Matting. -->
+    </div>
+  </div>
+</section>
 
-    <!-- Animation. -->
-    <!-- <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2> -->
-
-        <!-- Interpolating. -->
-        <!-- <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/> -->
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <!-- <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div> -->
-        <!--/ Re-rendering. -->
-
-      <!-- </div> -->
-    <!-- </div> -->
-    <!--/ Animation. -->
-
-
-    <!-- Concurrent Work. -->
-    <!-- <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Concurrent Work. -->
+<section class="footer">
+  <div class="container is-max-desktop">
 </section>
 
 
