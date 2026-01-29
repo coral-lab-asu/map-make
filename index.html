@@ -253,7 +253,7 @@
             We evaluate on three diverse benchmarks that stress-test different aspects of text-to-table generation:
           </p>
           <div style="margin-left: 1.5rem; margin-top: 1rem;">
-            <p><strong>🏀 RotoWire</strong> (<a href="https://github.com/harvardnlp/boxscore-data" target="_blank">Wiseman et al., 2017</a>): 728 NBA game summaries requiring complex multi-table schemas with player and team statistics. Following concerns raised by <a href="https://aclanthology.org/2022.emnlp-main.730/" target="_blank">Wu et al. (2022)</a> and <a href="https://aclanthology.org/2024.lrec-main.1354/" target="_blank">Strucbench (2024)</a>, we provide a <strong>corrected test set</strong> addressing hallucination errors in the original annotations—<a href="https://huggingface.co/datasets/McH04/Rotowire-Text-to-Table" target="_blank" style="font-weight: 600;">available on Hugging Face</a>.</p>
+            <p><strong>🏀 RotoWire</strong> (<a href="https://github.com/harvardnlp/boxscore-data" target="_blank">Wiseman et al., 2017</a>): 728 NBA game summaries requiring complex multi-table schemas with player and team statistics. Following concerns raised by <a href="https://aclanthology.org/2022.emnlp-main.730/" target="_blank">Wu et al. (2022)</a> and <a href="https://aclanthology.org/2024.lrec-main.1354/" target="_blank">Strucbench (2024)</a>, we provide a <strong>corrected test set</strong> addressing hallucination errors in the original annotations; <a href="https://huggingface.co/datasets/McH04/Rotowire-Text-to-Table" target="_blank" style="font-weight: 600;">available on Hugging Face</a>.</p>
             
             <p style="margin-top: 0.8rem;"><strong>⚽ Livesum</strong> (<a href="https://github.com/HKUST-KnowComp/LiveSum" target="_blank">Deng et al., 2021</a>): 1,462 line-by-line football commentaries requiring numerical aggregation into team tables, testing numerical reasoning across diverse event categories.</p>
         
@@ -273,10 +273,10 @@
         <h2 class="title is-3 has-text-centered">Evaluation</h2>
         <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7;">
           <p>
-            We employ a comprehensive evaluation suite combining <strong>comparative metrics</strong> and <strong>referenceless metrics</strong>:
+            We employ a comprehensive evaluation suite combining <strong>String-Similarity metrics</strong> and <strong>referenceless metrics</strong>:
           </p>
           <ul style="margin-top: 1rem;">
-            <li><strong>Comparative Metrics:</strong> Exact Match, chrF, and BERTScore for cell-level accuracy against gold annotations.</li>
+            <li><strong>String-Similarity Metrics:</strong> Exact Match, chrF, and BERTScore for cell-level accuracy against gold annotations. These metrics however are suitable to match table structures extracted attributes and player names (rows and column headers), they faily to capture discrepencies in cell level values.</li>
             <li><strong>TabEval</strong> (<a href="https://aclanthology.org/2024.emnlp-main.1239/" target="_blank">Ramu et al., EMNLP 2024</a>): Entailment-based evaluation that captures table semantics by comparing atomic statements, providing stronger correlation with human judgments.</li>
             <li><strong>AutoQA:</strong> Question-answering fidelity to measure information coverage without requiring gold tables.</li>
             <li><strong>Numerical Metrics:</strong> Error rates and RMSE for aggregation accuracy on Livesum.</li>
