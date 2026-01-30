@@ -198,7 +198,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body" style="text-align: center;">
-      <img src="./static/images/hero.png" alt="Map&Make vs Traditional Methods" style="width: 30%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block;"/>
+      <img src="./static/images/hero.png" alt="Map&Make vs Traditional Methods" style="width: 50%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block;"/>
       <h2 class="subtitle has-text-centered" style="margin-top: 1.5rem; font-size: 1.1rem;">
         Map&Make scales test-time compute through modular decomposition for improved text-to-table generation
       </h2>
@@ -214,7 +214,7 @@
         <h2 class="title is-3 has-text-centered">Abstract</h2>
         <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7;">
           <p>
-            Transforming dense, unstructured text into interpretable tables is essential for information extraction. We introduce <strong>Map&Make</strong>, a prompting pipeline that scales test-time compute to improve information coverage and integration across diverse text-to-table tasks. Our approach decomposes text into atomic propositions, extracts latent schemas, and generates tables capturing both qualitative nuances and quantitative facts. We evaluate on three challenging datasets: <strong><a href="https://github.com/harvardnlp/boxscore-data" target="_blank">RotoWire</a></strong> (complex multi-table schema), <strong><a href="https://github.com/HKUST-KnowComp/LiveSum" target="_blank">Livesum</a></strong> (numerical aggregation), and <strong>Wiki40B</strong> (open-domain extraction). By correcting hallucination errors in RotoWire, we provide a cleaner benchmark. Map&Make demonstrates significant gains across comprehensive metrics and enables effective supervision for fine-tuning smaller models.
+            Transforming dense, unstructured text into interpretable tables—commonly referred to as Text-to-Table generation—is a key task in information extraction. Existing methods often overlook what complex information to extract and how to infer it from text. We present Map&Make, a versatile approach that decomposes text into atomic propositions to infer latent schemas, which are then used to generate tables capturing both qualitative nuances and quantitative facts. We evaluate our method on three challenging datasets: Rotowire, known for its complex, multi-table schema; Livesum which requires numerical aggregation; and Wiki40 which require open text extraction from mulitple domains. By correcting hallucination errors in Rotowire, we also provide a cleaner benchmark. Our method shows significant gains in both accuracy and interpretability across comprehensive comparative and referenceless metrics. Finally, ablation studies highlight the key factors driving performance and validate the utility of our approach in structured summarization.
           </p>
         </div>
       </div>
@@ -273,7 +273,7 @@
         <h2 class="title is-3 has-text-centered">Evaluation</h2>
         <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7;">
           <p>
-            We employ a comprehensive evaluation suite combining <strong>String-Similarity metrics</strong> and <strong>referenceless metrics</strong>:
+            We employ a comprehensive evaluation suite combining <strong>String-Similarity metrics</strong> and <strong>Specialized metrics</strong>:
           </p>
           <ul style="margin-top: 1rem;">
             <li><strong>String-Similarity Metrics:</strong> Exact Match, chrF, and BERTScore for cell-level accuracy against gold annotations. These metrics however are suitable to match table structures extracted attributes and player names (rows and column headers), they faily to capture discrepencies in cell level values.</li>
@@ -332,7 +332,7 @@
         
         <!-- RotoWire: Comparative Metrics -->
         <div style="margin-bottom: 3rem;">
-          <h2 class="title is-4" style="color: #667eea; margin-bottom: 1rem;">🏀 RotoWire: Comparative Metrics</h2>
+          <h2 class="title is-4" style="color: #667eea; margin-bottom: 1rem;">🏀 RotoWire: String-Similarity Metrics</h2>
           <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
             <p>
               Map&Make outperforms <a href="https://arxiv.org/abs/2201.11903" target="_blank">Chain-of-Thought</a> and T3 baselines across cell-level metrics (Exact Match, chrF, BERTScore) on both GPT-4o and Gemini-2.0. The modular pipeline's step-by-step reasoning improves extraction accuracy, particularly for complex multi-table schemas with player and team statistics.
@@ -345,10 +345,10 @@
 
         <!-- RotoWire: Referenceless Metrics -->
         <div style="margin-bottom: 3rem;">
-          <h2 class="title is-4" style="color: #667eea; margin-bottom: 1rem;">🏀 RotoWire: Referenceless Metrics</h2>
+          <h2 class="title is-4" style="color: #667eea; margin-bottom: 1rem;">🏀 RotoWire: Specialized Metrics</h2>
           <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
             <p>
-              Using <a href="https://aclanthology.org/2024.emnlp-main.1239/" target="_blank">TabEval</a> (entailment-based evaluation) and AutoQA (question-answering fidelity), Map&Make demonstrates superior table-text consistency and information coverage. These referenceless metrics confirm that our pipeline generates tables more faithful to the source text, beyond just matching gold annotations.
+              Using <a href="https://aclanthology.org/2024.emnlp-main.1239/" target="_blank">TabEval</a> (entailment-based evaluation) and AutoQA (question-answering fidelity, referenceless), Map&Make demonstrates superior table-text consistency and information coverage. These specialized metrics confirm that our pipeline generates tables more faithful to the source text, beyond just matching gold annotations.
             </p>
           </div>
           <div style="text-align: center;">
@@ -525,17 +525,6 @@
             This page was adopted from the <a href="https://nerfies.github.io" target="_blank" style="color: #667eea;">Nerfies</a> project page.
             Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" style="color: #667eea;">CC BY-SA 4.0</a>.
           </p>
-          <div style="margin-top: 1.5rem;">
-            <a href="https://arxiv.org/abs/2505.23174" target="_blank" style="color: #e2e8f0; margin: 0 0.5rem;">
-              <i class="ai ai-arxiv" style="font-size: 1.5rem;"></i>
-            </a>
-            <a href="https://github.com/coral-lab-asu/map-make" target="_blank" style="color: #e2e8f0; margin: 0 0.5rem;">
-              <i class="fab fa-github" style="font-size: 1.5rem;"></i>
-            </a>
-            <a href="https://huggingface.co/datasets/McH04/Rotowire-Text-to-Table" target="_blank" style="color: #e2e8f0; margin: 0 0.5rem;">
-              <i class="fas fa-database" style="font-size: 1.5rem;"></i>
-            </a>
-          </div>
         </div>
       </div>
     </div>
