@@ -134,7 +134,18 @@
 
           <div class="column has-text-centered">
             <div class="publication-links">
+              <!-- ACL PDF Link. -->
               <span class="link-block">
+                <a href="https://aclanthology.org/2025.acl-long.1460.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Arxiv Link. -->
+              <!-- <span class="link-block">
                 <a href="https://arxiv.org/abs/2505.23174"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -142,7 +153,7 @@
                   </span>
                   <span>arXiv</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Video Link. -->
               <span class="link-block">
                 <a href="https://drive.google.com/file/d/16sZNx_Ll0hk0nNpHd-KVriozSde8BvBE/view?usp=drivesdk"
@@ -198,7 +209,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body" style="text-align: center;">
-      <img src="./static/images/hero.png" alt="Map&Make vs Traditional Methods" style="width: 50%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block;"/>
+      <img src="./static/images/hero.png" alt="Map&Make vs Traditional Methods" style="width: 40%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block;"/>
       <h2 class="subtitle has-text-centered" style="margin-top: 1.5rem; font-size: 1.1rem;">
         Map&Make scales test-time compute through modular decomposition for improved text-to-table generation
       </h2>
@@ -257,7 +268,7 @@
             
             <p style="margin-top: 0.8rem;"><strong>⚽ Livesum</strong> (<a href="https://github.com/HKUST-KnowComp/LiveSum" target="_blank">Deng et al., 2021</a>): 1,462 line-by-line football commentaries requiring numerical aggregation into team tables, testing numerical reasoning across diverse event categories.</p>
         
-            <p style="margin-top: 0.8rem;"><strong>📚 Wiki40B</strong>: 500 open-domain Wikipedia articles spanning diverse topics, requiring flexible schema extraction without predefined structures.</p>
+            <p style="margin-top: 0.8rem;"><strong>📚 Wiki40B [EN]</strong> (<a href="https://www.tensorflow.org/datasets/catalog/wiki40b" target="_blank">Guo et al., 2020</a>): 500 open-domain Wikipedia articles spanning diverse topics, requiring flexible schema extraction without predefined structures.</p>
           </div>
         </div>
       </div>
@@ -276,9 +287,9 @@
             We employ a comprehensive evaluation suite combining <strong>String-Similarity metrics</strong> and <strong>Specialized metrics</strong>:
           </p>
           <ul style="margin-top: 1rem;">
-            <li><strong>String-Similarity Metrics:</strong> Exact Match, chrF, and BERTScore for cell-level accuracy against gold annotations. These metrics however are suitable to match table structures extracted attributes and player names (rows and column headers), they faily to capture discrepencies in cell level values.</li>
+            <li><strong>String-Similarity Metrics:</strong> Exact Match, chrF (<a href="https://aclanthology.org/W15-3049/" target="_blank">Popovic´, ACL 2015</a>), and BERTScore (<a href="https://openreview.net/pdf?id=SkeHuCVFDr" target="_blank">Zhang* et al., ICLR 2020</a>) for cell-level accuracy against gold annotations. These metrics however are suitable to match table structures extracted attributes and player names (rows and column headers), they faily to capture discrepencies in cell level values.</li>
             <li><strong>TabEval</strong> (<a href="https://aclanthology.org/2024.emnlp-main.1239/" target="_blank">Ramu et al., EMNLP 2024</a>): Entailment-based evaluation that captures table semantics by comparing atomic statements, providing stronger correlation with human judgments.</li>
-            <li><strong>AutoQA:</strong> Question-answering fidelity to measure information coverage without requiring gold tables.</li>
+            <li><strong>AutoQA:</strong>(<a href="https://aclanthology.org/2024.acl-long.426/" target="_blank">Jain et al., ACL 2024</a>) Question-answering fidelity to measure information coverage without requiring gold tables.</li>
             <li><strong>Numerical Metrics:</strong> Error rates and RMSE for aggregation accuracy on Livesum.</li>
           </ul>
         </div>
@@ -348,7 +359,7 @@
           <h2 class="title is-4" style="color: #667eea; margin-bottom: 1rem;">🏀 RotoWire: Specialized Metrics</h2>
           <div class="content has-text-justified" style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 1.5rem;">
             <p>
-              Using <a href="https://aclanthology.org/2024.emnlp-main.1239/" target="_blank">TabEval</a> (entailment-based evaluation) and AutoQA (question-answering fidelity, referenceless), Map&Make demonstrates superior table-text consistency and information coverage. These specialized metrics confirm that our pipeline generates tables more faithful to the source text, beyond just matching gold annotations.
+              Using <a href="https://aclanthology.org/2024.emnlp-main.1239/" target="_blank">TabEval</a> (entailment-based evaluation) and <a href="https://aclanthology.org/2024.acl-long.426/" target="_blank">AutoQA</a> (question-answering fidelity, referenceless), Map&Make demonstrates superior table-text consistency and information coverage. These specialized metrics confirm that our pipeline generates tables more faithful to the source text, beyond just matching gold annotations.
             </p>
           </div>
           <div style="text-align: center;">
