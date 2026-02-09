@@ -1,6 +1,6 @@
 # Map&Make: Schema Guided Text to Table Generation
 
-[![Paper](https://img.shields.io/badge/Paper-arxiv.2505.23174-b31b1b.svg)](https://arxiv.org/abs/2505.23174)
+[![Paper](https://img.shields.io/badge/Paper-ACL%20Anthology-blue)](https://aclanthology.org/2025.acl-long.1460/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Hugging Face Dataset](https://img.shields.io/badge/🤗%20Dataset-Rotowire--Text--to--Table-yellow)](https://huggingface.co/datasets/McH04/Rotowire-Text-to-Table)
